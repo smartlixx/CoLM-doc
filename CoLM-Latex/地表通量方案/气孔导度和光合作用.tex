@@ -186,7 +186,7 @@ E_{\mathrm{tr,sun}}=\left(\frac{e_{\mathrm{i}}-e_{\mathrm{a}}}{P_{\mathrm {a}}}\
 \begin{equation}\label{ea_ei_sha}
 E_{\mathrm{tr,sha}}=\left(\frac{e_{\mathrm{i}}-e_{\mathrm{a}}}{P_{\mathrm {a}}}\right) /\left(\frac{1}{g_{\mathrm{b}}}+\frac{1}{g_{\mathrm{s,sha}}}\right)=\left(\frac{e_{\mathrm{i}}-e_{\mathrm{s,sha}}}{P_{\mathrm {a}}}\right) / \frac{1}{g_{\mathrm{s,sha}}}
 \end{equation}
-其中，$c_{\mathrm{i,sun}}$和$c_{\mathrm{i,sha}}$是阳叶和阴叶的胞间CO$_2$分压，$c_{\mathrm{s,sun}}$和$c_{\mathrm{s,sha}}$是阳叶和阴叶的叶表CO$_2$分压，$c_{\mathrm {a}}$是冠层大气$\rm CO_2$分压，单位: Pa；$e_{\mathrm{s,sun}}$和$e_{\mathrm{s,sha}}$是阳叶和阴叶的叶表水汽分压，$e_{\mathrm {a}}$是冠层大气水汽分压，$e_{\mathrm {i}}$是胞间水汽分压，单位: Pa，通常假定为饱和水汽压，$g_{\mathrm {b}}$是冠层尺度的叶边界层导度，$g_{\mathrm{s,sun}}$和$g_{\mathrm{s,sha}}$是阳叶和阴叶的冠层尺度叶气孔导度，单位: \unit{mol.m^{-2}.s^{-1}}。
+其中，$c_{\mathrm{i,sun}}$和$c_{\mathrm{i,sha}}$是阳叶和阴叶的胞间CO$_2$分压，$c_{\mathrm{s,sun}}$和$c_{\mathrm{s,sha}}$是阳叶和阴叶的叶表CO$_2$分压，$c_{\mathrm {a}}$是冠层大气$\rm CO_2$分压，单位: Pa；$e_{\mathrm{s,sun}}$和$e_{\mathrm{s,sha}}$是阳叶和阴叶的叶表水汽分压，$e_{\mathrm {a}}$是冠层大气水汽分压，$e_{\mathrm {i}}$是胞间水汽分压，单位: Pa，通常假定为饱和水汽压，$g_{\mathrm {b}}$是冠层尺度的叶边界层导度，$g_{\mathrm{s,sun}}$和$g_{\mathrm{s,sha}}$是阳叶和阴叶的冠层尺度叶气孔导度，单位: \unit{\mu mol.m^{-2}.s^{-1}}。
 
 气孔导度理论认为植被根据自身光合同化速率、环境大气水分亏缺以及土壤水分胁迫等因素，主动调控气孔导度。CoLM的气孔导度模型包含最优气孔导度模型和经验气孔导度模型两个选择，默认情况下对C3植被采用基于最优水分利用效率理论的WUE最优气孔导度模型~\citep{Liang2023}，对C4植物仍采用传统的Ball-Berry经验气孔导度模型。
 
@@ -258,8 +258,8 @@ F\left(g_{\mathrm{s}},c_{\mathrm{i}}\right)=1.6P_{\mathrm {a}}A_{\mathrm{n}}\lef
 
 \begin{equation}\label{gssolu}
     \begin{cases}
-    \frac{1}{r_{\mathrm{s,sun}}}=g_{\mathrm{s,sun}}=\frac{1.6} {\frac{c_{\mathrm{a}}-c_{\mathrm{i}}}{P_{\mathrm {a}} A_{\mathrm{n,sun}}} - \frac{1.37}{g_{\mathrm{b}}}}\\
-    \frac{1}{r_{\mathrm{s,sha}}}=g_{\mathrm{s,sha}}=\frac{1.6} {\frac{c_{\mathrm{a}}-c_{\mathrm{i}}}{P_{\mathrm {a}} A_{\mathrm{n,sha}}} - \frac{1.37}{g_{\mathrm{b}}}}
+    \frac{t_{\mathrm{unit}}}{r_{\mathrm{s,sun}}}=g_{\mathrm{s,sun}}=\frac{1.6} {\frac{c_{\mathrm{a}}-c_{\mathrm{i}}}{P_{\mathrm {a}} A_{\mathrm{n,sun}}} - \frac{1.37}{g_{\mathrm{b}}}}\\
+    \frac{t_{\mathrm{unit}}}{r_{\mathrm{s,sha}}}=g_{\mathrm{s,sha}}=\frac{1.6} {\frac{c_{\mathrm{a}}-c_{\mathrm{i}}}{P_{\mathrm {a}} A_{\mathrm{n,sha}}} - \frac{1.37}{g_{\mathrm{b}}}}
     \end{cases}
 \end{equation}
 
@@ -272,13 +272,17 @@ F\left(g_{\mathrm{s}},c_{\mathrm{i}}\right)=1.6P_{\mathrm {a}}A_{\mathrm{n}}\lef
 Ball-Berry模型构建气孔导度和光合同化速率、叶表水汽压、叶表二氧化碳分压，水分胁迫存在经验的线性关系，
 基于观测的回归方程，模型在阳叶和阴叶上分别计算冠层尺度的气孔导度：
 \begin{equation}\label{rs_a1sun}
-\frac{1}{r_{\mathrm{s,sun}}}=g_{\mathrm{s,sun}}=m \frac{A_{\mathrm{n,sun}}}{c_{\mathrm{s,sun}}} \frac{e_{\mathrm{s,sun}}}{e_{\mathrm{i}}} P_{\mathrm {a}}+bf_{\mathrm{w,sun}}
+\frac{t_{\mathrm{unit}}}{r_{\mathrm{s,sun}}}=g_{\mathrm{s,sun}}=m \frac{A_{\mathrm{n,sun}}}{c_{\mathrm{s,sun}}} \frac{e_{\mathrm{s,sun}}}{e_{\mathrm{i}}} P_{\mathrm {a}}+bf_{\mathrm{w,sun}}
 \end{equation}
 \begin{equation}\label{rs_a1sha}
-\frac{1}{r_{\mathrm{s,sha}}}=g_{\mathrm{s,sha}}=m \frac{A_{\mathrm{n,sha}}}{c_{\mathrm{s,sha}}} \frac{e_{\mathrm{s,sha}}}{e_{\mathrm{i}}} P_{\mathrm {a}}+bf_{\mathrm{w,sha}}
+\frac{t_{\mathrm{unit}}}{r_{\mathrm{s,sha}}}=g_{\mathrm{s,sha}}=m \frac{A_{\mathrm{n,sha}}}{c_{\mathrm{s,sha}}} \frac{e_{\mathrm{s,sha}}}{e_{\mathrm{i}}} P_{\mathrm {a}}+bf_{\mathrm{w,sha}}
 \end{equation}
-$r_{\mathrm{s,sun}}$和$r_{\mathrm{s,sha}}$代表阳叶和阴叶冠层尺度的气孔阻抗，单位: \unit{s.m^{-1}}，是气孔导度$g_{\mathrm{s,sun}}$和$g_{\mathrm{s,sha}}$的倒数；$m$是无量纲经验参数；$b$是最小气孔导度，
-单位: \unit{mol.CO_2.m^{-2}.s^{-1}}，$m$和$b$是观测拟合的经验系数；$e_{\mathrm {i}}$是饱和水蒸气压，是气温的函数，单位: Pa；$P_{\mathrm {a}}$是大气压强，单位: Pa，$f_{\mathrm{w,sun}}$和$f_{\mathrm{w,sha}}$是阳叶和阴叶的水分胁迫因子，取值范围0$\sim$1。相比Ball-Berry模型不考虑水分胁迫的影响，观测研究发现，截距相比斜率来说和土壤水势的统计关系更加密切~\citep{Misson2004,Medlyn2011}，因此，CoLM气孔导度模型在截距部分引入水分胁迫因子。
+\begin{equation}\label{tunit}
+t_{\mathrm{unit}}=\frac{P_{\mathrm{a}}}{T_{\mathrm{l}}R_{\mathrm{gas}}}\times 10^6
+\end{equation}
+$r_{\mathrm{s,sun}}$和$r_{\mathrm{s,sha}}$代表阳叶和阴叶冠层尺度的气孔阻抗，单位: \unit{s.m^{-1}}，经单位转换后，是气孔导度$g_{\mathrm{s,sun}}$和$g_{\mathrm{s,sha}}$的倒数，$t_{\mathrm{unit}}$是单位转换系数,将\unit{m.s^{-1}}转换为\unit{\mu.mol.m^{-2}.s^{-1}}，$T_{\mathrm{l}}$是叶片温度，单位：\unit{K}, $R_{\mathrm{gas}}$是理想气体常数约等于8.314；$m$是无量纲经验参数；$b$是最小气孔导度，
+单位: \unit{\mu.mol.m^{-2}.s^{-1}}，$m$和$b$是观测拟合的经验系数；$e_{\mathrm {i}}$是饱和水蒸气压，是气温的函数，单位: Pa；$P_{\mathrm {a}}$是大气压强，单位: Pa，$f_{\mathrm{w,sun}}$和$f_{\mathrm{w,sha}}$是阳叶和阴叶的水分胁迫因子，取值范围0$\sim$1。相比Ball-Berry模型不考虑水分胁迫的影响，观测研究发现，截距相比斜率来说和土壤水势的统计关系更加密切~\citep{Misson2004,Medlyn2011}，因此，CoLM气孔导度模型在截距部分引入水分胁迫因子。
+
 
 
 因为气孔控制植被大气气体交换的同时受植被自身的光合能力和土壤水分亏缺的影响，需要联立光合作用模块方程、气体扩散方程，气孔导度模型和土壤水分胁迫方案，在阳叶和阴叶上分别求解冠层尺度气孔导度。
