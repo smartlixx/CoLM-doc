@@ -338,7 +338,7 @@ GLC FSC30地表覆盖产品是由~\citet{zhang2023glc_fcs30d}提供的全球地�
 \section{植被数据}\label{植被数据}
 \esection{Vegetation Data}
 
-植被覆盖显著影响地表动量、能量、水分和气体通量交换，其结构相关数据是陆表重要特征参量，包括叶面积指数数据、植被功能型相关数据和植被形态结构数据。
+植被覆盖显著影响地表动量、能量、水分和气体通量交换，其结构相关数据是陆表重要特征参量，包括叶面积指数数据、植物功能型相关数据和植被形态结构数据。
 
 叶面积指数数据是陆面模式中核心参数之一，在计算植被辐射传输（短波和长波）、地表湍流交换、光合作用和植被冠层截留过程中都会用到，并对其模拟具有重要影响。当进行PFT或PC植被次网格模拟时，需要次网格中PFT类型及面积占比、PFT LAI和SAI数据作为必要参数输入。植被形态结构数据包括树高数据，可用于计算植被地表粗糙度和零平面位移高度；另外植被树冠相关参数（冠幅宽度、深度和宽度深度比）可用于计算树冠底部高度、三维植被辐射传输模型输入参数。树冠底部高度可用于计算积雪覆盖植被叶面积/茎面积比例。
 
@@ -367,11 +367,11 @@ GLC FSC30地表覆盖产品是由~\citet{zhang2023glc_fcs30d}提供的全球地�
 
 叶面积指数数据来自重处理的MODIS LAI数据~\citep{yuan2011reprocessing,lin2023ReprocessedMODISVersion}。目前模式提供MODIS第5版(\url{http://globalchange.bnu.edu.cn/research/lai})和第6.1版数据(\url{http://globalchange.bnu.edu.cn/research/laiv061})（表~\ref{tab:LAI数据}）。其中MODIS第5版数据 (MOD15A2) 为全球 \ang{;;30} (1公里) 分辨率，经纬度网格，时间覆盖2000--2016年，时间分辨率为每8天。MODIS第6.1版数据 (MCD15A2H)，空间分辨率为全球 \ang{;;15} (约500米)，经纬度网格，时间覆盖从2000年至今，时间分辨率每8天或每月。
 
-需要说明的是，这里的LAI数据是格点数据，即500 m（1 km）网格内所有植被平均叶面积指数。它不能直接用于植被功能型（PFT）LAI，关于PFT LAI数据在接下来的章节~\ref{植被功能型数据} 给出。
+需要说明的是，这里的LAI数据是格点数据，即500 m（1 km）网格内所有植被平均叶面积指数。它不能直接用于植物功能型（PFT）LAI，关于PFT LAI数据在接下来的章节~\ref{植物功能型数据} 给出。
 
 FLUXNET 站点 LAI 数据集是通过提取滤波处理后的第 6.1 版 MODIS LAI 数据得到的。提取过程中对 MODIS 遥感地表覆盖产品与站点地表覆盖类型进行了匹配，并对可能存在识别偏移的情况进行校正，制作了 259 个站点的 LAI 数据集以及站点通量源区内的平均 LAI 数据集。
 
-\subsection{植被功能型数据}\label{植被功能型数据}
+\subsection{植物功能型数据}\label{植物功能型数据}
 \esubsection{Plant Functional Type Dataset}
 
 当模式运行设置为PFT或者PC次网格类型时，需要格点的PFT组成类型及面积占比、PFT LAI和SAI数据（表~\ref{tab:PFT数据}）。这些数据是对网格植被结构的进一步刻画。
@@ -379,7 +379,7 @@ FLUXNET 站点 LAI 数据集是通过提取滤波处理后的第 6.1 版 MODIS L
 \begin{table}[htbp]
   \begin{threeparttable}
     \centering
-    \caption{植被功能型数据}
+    \caption{植物功能型数据}
     \label{tab:PFT数据}
     \begin{tabular}{p{1cm}p{3.5cm}p{3cm}p{3cm}p{3cm}}
       \toprule
@@ -393,16 +393,16 @@ FLUXNET 站点 LAI 数据集是通过提取滤波处理后的第 6.1 版 MODIS L
   \end{threeparttable}
 \end{table}
 
-PFT和PC次网格方案采用同样的植被功能型分类，如表~\ref{tab:PFT分类} 所示。
+PFT和PC次网格方案采用同样的植物功能型分类，如表~\ref{tab:PFT分类} 所示。
 由于PFT和PC方案都需要对细网格地表覆盖数据进行PFT分解，而地表覆盖原数据并不包含PFT植被结构属性信息，需要借助辅助数据进行计算。
 
 \begin{table}[htbp]
   \centering
-  \caption{植被功能型-PFT分类}
+  \caption{植物功能型-PFT分类}
   \label{tab:PFT分类}
   \begin{tabular}{ll}
     \toprule
-    \multicolumn{1}{l}{编号} & \multicolumn{1}{l}{植被功能型} \\ \midrule
+    \multicolumn{1}{l}{编号} & \multicolumn{1}{l}{植物功能型} \\ \midrule
     0                        & 裸土                           \\
     1                        & 温带常绿针叶树                 \\
     2                        & 北方常绿针叶树                 \\
@@ -514,7 +514,7 @@ CoLM中的水文数据包括水文学基础数据、河网数据、水库数据�
 \esubsection{River Networks}
 CaMa-Flood水文水动力模拟所需的相关次网格地形参数是由90米超高精细分辨率的水文基础数据集 MERIT-Hydro ~\citep{yamazaki2019merit}，
 水文调整高程DEM数据 ~\citep{yamazaki2017high,yamazaki2012analysis}，以及河宽数据~\citep{yamazaki2014development};
-使用 \citet{yamazaki2009deriving} 开发的升尺度模式 Flexible Location of Waterways (FLOW) 计算得出。目前CaMa-Flood已经制备了01min（弧分）、03min、05min、06min、15min、30min和60min下运行所需的河网基础数据。具体而言，除了需要陆面模式计算得出的产流量 (runoff) 之外，CaMa-Flood模块还需要包括流域面积 ($A_{\mathrm {s}} $)，河道长度 ($L$)，河道宽度 ($W$) 及深度 ($B$) 以及用于计算平均漫滩水深的漫滩高程剖面等相关的次网格地形数据。除了河道横截面的宽度和深度数据以外，其他地形相关参数均可由 MERIT-hydro 直接计算得出。数据文件内容如表~\ref{tab:河网图及地形参数文件列表} 和表~\ref{tab:河网图及地形参数文件列表2} 所示。 
+使用 \citet{yamazaki2009deriving} 开发的升尺度模式 Flexible Location of Waterways (FLOW) 计算得出。目前CaMa-Flood已经制备了01min（弧分）、03min、05min、06min、15min、30min和60min下运行所需的河网基础数据。具体而言，除了需要陆面模式计算得出的产流量 (runoff) 之外，CaMa-Flood模块还需要包括流域面积 ($A_{\mathrm {s}} $)，河道长度 ($L$)，河道宽度 ($W$) 及深度 ($B$) 以及用于计算平均漫滩水深的漫滩高程剖面等相关的次网格地形数据。除了河道横截面的宽度和深度数据以外，其他地形相关参数均可由 MERIT-hydro 直接计算得出。数据文件内容如表~\ref{tab:河网图及地形参数文件列表} 和表~\ref{tab:河网图及地形参数文件列表2} 所示。
 
 % Please add the following required packages to your document preamble:
 % \usepackage{booktabs}
@@ -929,7 +929,7 @@ LUCY地区分类数据来自~\citet{allen2011}，根据该数据分配不同地�
 
 数据集共包含 90 个经过质量控制的高质量通量塔站点及其地表属性数据。属性数据包括通量塔站点的植被、土壤以及参考测量高度信息，这些数据均来自站点现场测量。该数据集旨在为陆面模式单点模拟提供更准确的地表属性数据，降低单点模拟的不确定性，提高单点校准、验证和评估的可靠性。
 
-其中 90 个站点是通过对 PLUMBER2~\citep{ukkola2022flux}数据集进行全面质量控制得到。属性数据是从多种公开出版资料收集、处理，并使用三个全球数据产品进行补全后得到。其中植被属性包括植被功能型（PFT）覆盖比例（PCT\_PFT），叶面积指数
+其中 90 个站点是通过对 PLUMBER2~\citep{ukkola2022flux}数据集进行全面质量控制得到。属性数据是从多种公开出版资料收集、处理，并使用三个全球数据产品进行补全后得到。其中植被属性包括植物功能型（PFT）覆盖比例（PCT\_PFT），叶面积指数
 （LAI）最大值，平均冠层高度（$H_{\rm can}$）；土壤属性包括土壤质地（TEX），土壤容重（BD）和土壤有机碳浓度（SOC）；参考测量高度则包含了风速、温度和湿度的测量高度（表~\ref{tab:站点数据元数据}）。
 
 \begin{table}[htbp]
@@ -941,7 +941,7 @@ LUCY地区分类数据来自~\citet{allen2011}，根据该数据分配不同地�
       \toprule
       \textbf{变量名 (维度)}                               & \textbf{含义}             & \textbf{单位}  & \textbf{辅助说明}                                            \\
       \midrule
-      PCT\_PFT (pft=16)                                    & 植被功能型比例            & \%             & Sources\tnote{a} ；qc                                        \\
+      PCT\_PFT (pft=16)                                    & 植物功能型比例            & \%             & Sources\tnote{a} ；qc                                        \\
       LAI\_Max                                             & 叶面积指数最大值          & \unit{m^2/m^2} & Sources; year\_range\tnote{b} ; LAI\_Max\_year\tnote{c} ；qc \\
       Canopy\_height                                       & 平均冠层高度              & m              & Sources                                                      \\
       Soil\_TEX \newline (particle\_size=3, soil\_layer=4) & 土壤质地                  & \%             & Sources; layer\_n\_depth\tnote{d} ; qc                       \\

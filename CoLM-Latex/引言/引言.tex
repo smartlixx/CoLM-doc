@@ -44,7 +44,7 @@ CoLM 2024版本是一集模式、数据集、性能评估和高性能计算为�
 在2000年6月召开的CCSM Workshop LMWG会议上，戴永久正式汇报了通用陆面模式与CCM3的初步耦合结果，表明CLM可以成功地与气候模式耦合。与NCAR LSM和观测结果的比较表明，尤其对径流的季节性、地表气温和雪水当量的模拟有了重大改善。但是，注意到与径流和反照率有关的一些缺陷，随后予以解决。杨宗良和Ian Baker汇报了CLM在模拟积雪和土壤温度方面的改进。
 戴永久具体实施和组织完成了CLM的研发、CSM的耦合、全面的性能评估、完整的技术报告和用户指南~\citep{Dai2001CoLM}。CLM由戴永久通过2003年BAMS封面论文向公众发布~\citep{dai2003common}。CLM与CCM的耦合评估由曾旭斌总结发表~\citep{zeng2002coupling}。戴永久参与了NCAR Community Atmosphere Model (CAM 3.0)技术报告编写~\citep{Collins2004CAM}。
 
-在此基础上，NCAR团队改土地覆盖/土地利用的biome分类体系(BATS分类)为植被功能(PFT)分类体系，新增了全球陆面基础数据集、河道径流和生物地球化学的模式以及代码架构。为了与CCSM中Community相匹配，名称改The Common Land Model为The Community Land Model，简写仍然为CLM。Community-CLM技术报告于2004年通过NCAR Tech Note~\citep{Oleson2004CLM}正式发布，提供免费自由下载的模式系统。Community-CLM与CCM耦合评估由Gordon Bonan总结发表~\citep{Bonan2002CLM}。
+在此基础上，NCAR团队改土地覆盖/土地利用的biome分类体系(BATS分类)为植物功能型(PFT)分类体系，新增了全球陆面基础数据集、河道径流和生物地球化学的模式以及代码架构。为了与CCSM中Community相匹配，名称改The Common Land Model为The Community Land Model，简写仍然为CLM。Community-CLM技术报告于2004年通过NCAR Tech Note~\citep{Oleson2004CLM}正式发布，提供免费自由下载的模式系统。Community-CLM与CCM耦合评估由Gordon Bonan总结发表~\citep{Bonan2002CLM}。
 
 戴永久于2002年6月加盟北京师范大学，2003年6月全职回到北京，希望能在Common-CLM的基础上，发展我们自主可控的陆面模拟研究平台，得到了Robert Dickinson的鼓励和全面的建议，并建议中国版CLM继承The Common Land Model这一名称，为了区别NCAR主导的Community–CLM，改Common-CLM的简写为CoLM。
 
@@ -126,7 +126,7 @@ CoLM 2024主要新内容(New Features of CoLM 2024):
 
   除经纬度网格外，CoLM2024版引入了两种新的网格结构：非结构网格和流域单元网格。非结构网格可以基于多个水平陆面分布特征，自动识别不同区域所需的网格分辨率，生成包括三角形网格和六边形网格在内的无规则拓扑关系网格结构。流域单元网格重点考虑了地形对陆面过程的影响，建立了流域单元-高度带单元的多级网格结构。
 
-  除CoLM原有地表覆盖类型(LCT)植被次网格结构之外，新添加目前陆面模式通常采用的植被功能型(PFT)次网格结构表征方式，同时新发展了以植物群落(PC--Plant Community)假设为基础的PC植被次网格结构方案。PC方案不同于LCT和PFT方案，是对某一地表覆盖类型所组成的PFT进行显式表达计算，所有PFT在同一次网格的patch中共享辐射、风、水热及营养元素等环境，在状态变量和通量计算过程中，PFT之间相互影响、同时求解，即考虑了PFT之间的共存与竞争。
+  除CoLM原有地表覆盖类型(LCT)植被次网格结构之外，新添加目前陆面模式通常采用的植物功能型(PFT)次网格结构表征方式，同时新发展了以植物群落(PC--Plant Community)假设为基础的PC植被次网格结构方案。PC方案不同于LCT和PFT方案，是对某一地表覆盖类型所组成的PFT进行显式表达计算，所有PFT在同一次网格的patch中共享辐射、风、水热及营养元素等环境，在状态变量和通量计算过程中，PFT之间相互影响、同时求解，即考虑了PFT之间的共存与竞争。
 
 \item 基础数据集
   \begin{enumerate}[label={\alph*)}]
